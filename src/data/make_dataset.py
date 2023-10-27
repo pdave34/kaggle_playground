@@ -15,14 +15,13 @@ def main(input_filepath, output_filepath):
         
         Assumes .csv files 
     """
+    ic.disable()
+
     logger = logging.getLogger(__name__)
-    ic('making final data set from raw data')
+    logger.info('making final data set from raw data')
 
-    input_files = glob.glob(input_filepath + '/*.csv')
-    ic(type(input_filepath))
-    ic(glob.glob(input_filepath + '/*'))
-    ic(f'found {input_filepath} files: {input_files}')
-
+    input_files = glob.glob(os.path.join(input_filepath, '*.csv'))
+    logger.info(ic(f'found {len(input_files)} files: {input_files}'))
 
 
 

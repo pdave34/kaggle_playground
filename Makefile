@@ -26,12 +26,12 @@ requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
 ## Fetch kaggle datasets
-fetch: requirements
+fetch: 
 	kaggle competitions download -c playground-series-s3e24 -p data/raw/
-	unzip data/raw/*.zip data/raw/	
+	unzip data/raw/*.zip -d data/raw/	
 
 ## Make Dataset
-data: fetch
+data: 
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
 ## Delete all compiled Python files
