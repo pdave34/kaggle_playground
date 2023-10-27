@@ -17,6 +17,7 @@ scipy
 pandas
 seaborn
 matplotlib
+jupyter
 # ML
 # --
 xgboost
@@ -26,3 +27,6 @@ scikit-learn
 # debug
 # -----
 icecream
+# kaggle
+# ------
+kaggle
