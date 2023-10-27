@@ -4,6 +4,7 @@ import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 from icecream import ic
+import glob, os
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
@@ -11,9 +12,18 @@ from icecream import ic
 def main(input_filepath, output_filepath):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
+        
+        Assumes .csv files 
     """
     logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
+    ic('making final data set from raw data')
+
+    input_files = glob.glob(input_filepath + '/*.csv')
+    ic(type(input_filepath))
+    ic(glob.glob(input_filepath + '/*'))
+    ic(f'found {input_filepath} files: {input_files}')
+
+
 
 
 if __name__ == '__main__':
