@@ -5,6 +5,7 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 from icecream import ic
 import glob, os
+import pandas as pd
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
@@ -15,7 +16,7 @@ def main(input_filepath, output_filepath):
         
         Assumes .csv files 
     """
-    ic.disable()
+    #ic.disable()
 
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
@@ -23,6 +24,13 @@ def main(input_filepath, output_filepath):
     input_files = glob.glob(os.path.join(input_filepath, '*.csv'))
     logger.info(ic(f'found {len(input_files)} files: {input_files}'))
 
+    for i, fi in enumerate(input_files):
+        df = pd.read_csv(fi)
+        logger.info(f'----------------------------------------')
+        logger.info(f'        {fi}                            ')
+        logger.info(f'----------------------------------------')
+        ic(df.describe())
+        ic(df.info())
 
 
 if __name__ == '__main__':
