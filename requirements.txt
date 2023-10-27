@@ -18,6 +18,7 @@ pandas
 seaborn
 matplotlib
 jupyter
+pylatex
 # ML
 # --
 xgboost

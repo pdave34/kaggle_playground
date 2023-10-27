@@ -3,7 +3,7 @@ import click
 import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
-
+from icecream import ic
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
